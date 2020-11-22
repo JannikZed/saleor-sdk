@@ -14,14 +14,11 @@ export const checkoutDetails = gql`
   }
 `;
 
-export const userCheckoutDetails = gql`
-  ${checkoutFragment}
-  query UserCheckoutDetails {
+export const userCheckoutTokenList = gql`
+  query UserCheckoutTokenList($channel: String) {
     me {
       id
-      checkout {
-        ...Checkout
-      }
+      checkoutTokens(channel: $channel)
     }
   }
 `;
